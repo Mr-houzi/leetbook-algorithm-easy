@@ -1,0 +1,13 @@
+# Summary
+
+* [介绍](README.md)
+* [数组](array/summary.md)
+    * [删除排序数组中的重复项](array/x2gy9m.md)
+* [字符串](string/summary.md)
+* [链表](linked-list/summary.md)
+* [树](tree/summary.md)
+* [排序和搜索](sort-search/summary.md)
+* [动态规划](dynamic-programming/summary.md)
+* [设计问题](design-question/summary.md)
+* [数学](math/summary.md)
+* [其他](other/summary.md)
