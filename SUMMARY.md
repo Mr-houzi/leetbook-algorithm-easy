@@ -4,6 +4,7 @@
 * [数组](array/summary.md)
     * [删除排序数组中的重复项](array/x2gy9m.md)
     * [买卖股票的最佳时机 II](array/x2zsx1.md)
+    * [旋转数组](array/x2skh7.md)
 * [字符串](string/summary.md)
 * [链表](linked-list/summary.md)
 * [树](tree/summary.md)
