@@ -2,9 +2,9 @@
 
 * [介绍](README.md)
 * [数组](array/summary.md)
-    * [删除排序数组中的重复项](array/x2gy9m.md)
-    * [买卖股票的最佳时机 II](array/x2zsx1.md)
-    * [旋转数组](array/x2skh7.md)
+    * [删除排序数组中的重复项](array/remove-duplicates-from-sorted-array.md)
+    * [买卖股票的最佳时机 II](array/best-time-to-buy-and-sell-stock-ii.md)
+    * [旋转数组](array/rotate-array.md)
     * [存在重复元素](array/contains-duplicate.md)
 * [字符串](string/summary.md)
 * [链表](linked-list/summary.md)
