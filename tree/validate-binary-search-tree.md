@@ -1,5 +1,7 @@
 # 验证二叉搜索树
 
+## 方法一、递归法
+
 ### 思路
 
 二叉搜索树特征
@@ -72,6 +74,71 @@ class Solution {
 
         if( $max !== '+inf' && $root->val >= $max )  {
             return false;
+        }
+
+        return true;
+    }
+}
+```
+
+## 方法二、迭代法
+
+### 思路
+
+迭代法，递归法转迭代必然需要用到队列进行辅助。
+
+先把两个根节点放入队列；
+遍历弹出两个节点，进行比较：
+1. 若两个节点（p、q）都是null，则局部是对称的，继续下一遍历；
+2. 若有一个节点不为空，或者两个节点的值不相等，则不对称，直接返回false；
+3. 将把**节点p的左子节点**和**节点q的右子节点**放入队列，将把节点p的右子节点和节点q的左子节点放入队列。
+进行下一循环。
+
+### 复杂度
+
+时间复杂度：O(n)
+
+空间复杂度：O(n)
+
+### 代码
+
+```php
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     public $val = null;
+ *     public $left = null;
+ *     public $right = null;
+ *     function __construct($val = 0, $left = null, $right = null) {
+ *         $this->val = $val;
+ *         $this->left = $left;
+ *         $this->right = $right;
+ *     }
+ * }
+ */
+class Solution {
+
+    /**
+     * @param TreeNode $root
+     * @return Boolean
+     */
+    function isSymmetric($root) {
+        $list = [];
+        $list[] = $root;
+        $list[] = $root;
+        while(count($list) > 0) {
+            $p = array_shift($list);
+            $q = array_shift($list);
+
+            if($p == null && $q == null) continue;
+
+            if(($p == null) || ($q == null) || ($p->val != $q->val)) return false;
+
+            $list[] = $p->left;
+            $list[] = $q->right;
+
+            $list[] = $p->right;
+            $list[] = $q->left;
         }
 
         return true;
