@@ -49,6 +49,34 @@ class Solution {
 }
 ```
 
+```golang
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxDepth(root *TreeNode) int {
+	// 递归返回条件
+	if root == nil {
+		return 0
+	}
+
+	// 分治
+	left := maxDepth(root.Left)
+	right:= maxDepth(root.Right)
+
+	// 合并结果
+	if left > right {
+		return left + 1
+	}
+	
+	return right + 1
+}
+```
+
 ## 方法二、广度优先搜索
 
 ### 思路
