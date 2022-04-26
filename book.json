@@ -1,0 +1,20 @@
+{
+    "author": "Mr-houzi",
+    "description": "这是一本LeetCode书籍《初级算法》的题解",
+    "title" : "LeetBook《初级算法》题解",
+    "language": "zh-hans",
+    "links": {
+        "sidebar": {
+            "LeetBook《初级算法》题解": "#"
+        }
+    },
+    "plugins": [
+        "-sharing",
+        "github"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/Mr-houzi/leetbook-algorithm-easy"
+        }
+    }
+}
