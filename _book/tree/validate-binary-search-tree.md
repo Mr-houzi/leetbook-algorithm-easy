@@ -81,6 +81,73 @@ class Solution {
 }
 ```
 
+```golang
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isValidBST(root *TreeNode) bool {
+	result := helper(root)
+
+	return result.IsValid
+}
+
+// 递归返回结果中需要返回的三个值
+type ResType struct {
+	IsValid bool
+	MinNode *TreeNode // 当前节点和子孙节点最小值的节点
+	MaxNode *TreeNode // 大
+}
+
+func helper(node *TreeNode) ResType {
+	result := ResType{}
+	if node == nil {
+		result.IsValid = true
+		return result
+	}
+
+	left := helper(node.Left)
+	right := helper(node.Right)
+
+	// 左右子树无效，则当前树一定不是有效的
+	if !left.IsValid || !right.IsValid {
+		result.IsValid = false
+		return result
+	}
+
+	// 根节点要大于左路的最大值，小于右路的最小值
+	if left.MaxNode != nil && node.Val <= left.MaxNode.Val {
+		result.IsValid = false
+		return result
+	}
+
+	if right.MinNode != nil && node.Val >= right.MinNode.Val {
+		result.IsValid = false
+		return result
+	}
+
+	result.IsValid = true
+
+	// 重新判断当前树上谁是最大值点，最小值点
+	result.MinNode = left.MinNode
+	if left.MinNode == nil {
+		result.MinNode = node
+	}
+
+	result.MaxNode = right.MaxNode
+	if right.MaxNode == nil {
+		result.MaxNode = node
+	}
+
+	result.IsValid = true
+	return result
+}
+```
+
 ## 方法二、迭代法
 
 ### 思路

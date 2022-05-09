@@ -47,12 +47,33 @@ class Solution {
 }
 ```
 
+```golang
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseList(head *ListNode) *ListNode {
+	var pre *ListNode
+	for head != nil {
+		temp := head
+		head = head.Next
+		temp.Next = pre
+		pre = temp
+	}
+	
+	return pre
+}
+```
+
 ## 方法二、递归法
 
 ### 思路
 
 终止条件：节点为空或节点的指向为空
-“递”：指针后裔一步
+“递”：指针后移一步
 “归”：局部反转指针
 
 关键是利用指针 p 和 head ，使指针 p 一直指向反转前的链表尾部，方便直接返回。

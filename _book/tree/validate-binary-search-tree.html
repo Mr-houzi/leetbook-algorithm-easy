@@ -1034,6 +1034,71 @@
     }
 }
 </code></pre>
+<pre><code class="lang-golang"><span class="hljs-comment">/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */</span>
+<span class="hljs-keyword">func</span> isValidBST(root *TreeNode) <span class="hljs-keyword">bool</span> {
+    result := helper(root)
+
+    <span class="hljs-keyword">return</span> result.IsValid
+}
+
+<span class="hljs-comment">// &#x9012;&#x5F52;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E2D;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x7684;&#x4E09;&#x4E2A;&#x503C;</span>
+<span class="hljs-keyword">type</span> ResType <span class="hljs-keyword">struct</span> {
+    IsValid <span class="hljs-keyword">bool</span>
+    MinNode *TreeNode <span class="hljs-comment">// &#x5F53;&#x524D;&#x8282;&#x70B9;&#x548C;&#x5B50;&#x5B59;&#x8282;&#x70B9;&#x6700;&#x5C0F;&#x503C;&#x7684;&#x8282;&#x70B9;</span>
+    MaxNode *TreeNode <span class="hljs-comment">// &#x5927;</span>
+}
+
+<span class="hljs-keyword">func</span> helper(node *TreeNode) ResType {
+    result := ResType{}
+    <span class="hljs-keyword">if</span> node == <span class="hljs-literal">nil</span> {
+        result.IsValid = <span class="hljs-literal">true</span>
+        <span class="hljs-keyword">return</span> result
+    }
+
+    left := helper(node.Left)
+    right := helper(node.Right)
+
+    <span class="hljs-comment">// &#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x65E0;&#x6548;&#xFF0C;&#x5219;&#x5F53;&#x524D;&#x6811;&#x4E00;&#x5B9A;&#x4E0D;&#x662F;&#x6709;&#x6548;&#x7684;</span>
+    <span class="hljs-keyword">if</span> !left.IsValid || !right.IsValid {
+        result.IsValid = <span class="hljs-literal">false</span>
+        <span class="hljs-keyword">return</span> result
+    }
+
+    <span class="hljs-comment">// &#x6839;&#x8282;&#x70B9;&#x8981;&#x5927;&#x4E8E;&#x5DE6;&#x8DEF;&#x7684;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x5C0F;&#x4E8E;&#x53F3;&#x8DEF;&#x7684;&#x6700;&#x5C0F;&#x503C;</span>
+    <span class="hljs-keyword">if</span> left.MaxNode != <span class="hljs-literal">nil</span> &amp;&amp; node.Val &lt;= left.MaxNode.Val {
+        result.IsValid = <span class="hljs-literal">false</span>
+        <span class="hljs-keyword">return</span> result
+    }
+
+    <span class="hljs-keyword">if</span> right.MinNode != <span class="hljs-literal">nil</span> &amp;&amp; node.Val &gt;= right.MinNode.Val {
+        result.IsValid = <span class="hljs-literal">false</span>
+        <span class="hljs-keyword">return</span> result
+    }
+
+    result.IsValid = <span class="hljs-literal">true</span>
+
+    <span class="hljs-comment">// &#x91CD;&#x65B0;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x6811;&#x4E0A;&#x8C01;&#x662F;&#x6700;&#x5927;&#x503C;&#x70B9;&#xFF0C;&#x6700;&#x5C0F;&#x503C;&#x70B9;</span>
+    result.MinNode = left.MinNode
+    <span class="hljs-keyword">if</span> left.MinNode == <span class="hljs-literal">nil</span> {
+        result.MinNode = node
+    }
+
+    result.MaxNode = right.MaxNode
+    <span class="hljs-keyword">if</span> right.MaxNode == <span class="hljs-literal">nil</span> {
+        result.MaxNode = node
+    }
+
+    result.IsValid = <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">return</span> result
+}
+</code></pre>
 <h2 id="&#x65B9;&#x6CD5;&#x4E8C;&#x3001;&#x8FED;&#x4EE3;&#x6CD5;">&#x65B9;&#x6CD5;&#x4E8C;&#x3001;&#x8FED;&#x4EE3;&#x6CD5;</h2>
 <h3 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h3>
 <p>&#x8FED;&#x4EE3;&#x6CD5;&#xFF0C;&#x9012;&#x5F52;&#x6CD5;&#x8F6C;&#x8FED;&#x4EE3;&#x5FC5;&#x7136;&#x9700;&#x8981;&#x7528;&#x5230;&#x961F;&#x5217;&#x8FDB;&#x884C;&#x8F85;&#x52A9;&#x3002;</p>
@@ -1134,7 +1199,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"验证二叉搜索树","level":"1.5.2","depth":2,"next":{"title":"对称二叉树","level":"1.5.3","depth":2,"path":"tree/symmetric-tree.md","ref":"tree/symmetric-tree.md","articles":[]},"previous":{"title":"二叉树的最大深度","level":"1.5.1","depth":2,"path":"tree/maximum-depth-of-binary-tree.md","ref":"tree/maximum-depth-of-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/Mr-houzi/leetbook-algorithm-easy"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mr-houzi","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"LeetBook《初级算法》题解","language":"zh-hans","links":{"sidebar":{"LeetBook《初级算法》题解":"#"}},"gitbook":"*","description":"这是一本LeetCode书籍《初级算法》的题解"},"file":{"path":"tree/validate-binary-search-tree.md","mtime":"2021-04-25T10:19:39.542Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-19T09:31:08.088Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"验证二叉搜索树","level":"1.5.2","depth":2,"next":{"title":"对称二叉树","level":"1.5.3","depth":2,"path":"tree/symmetric-tree.md","ref":"tree/symmetric-tree.md","articles":[]},"previous":{"title":"二叉树的最大深度","level":"1.5.1","depth":2,"path":"tree/maximum-depth-of-binary-tree.md","ref":"tree/maximum-depth-of-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","github","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/Mr-houzi/leetbook-algorithm-easy"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mr-houzi","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"LeetBook《初级算法》题解","language":"zh-hans","links":{"sidebar":{"LeetBook《初级算法》题解":"#"}},"gitbook":"*","description":"这是一本LeetCode书籍《初级算法》的题解"},"file":{"path":"tree/validate-binary-search-tree.md","mtime":"2022-04-26T04:02:33.319Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-09T04:05:27.538Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1145,6 +1210,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

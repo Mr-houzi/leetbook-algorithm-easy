@@ -1003,10 +1003,29 @@
     }
 }
 </code></pre>
+<pre><code class="lang-golang"><span class="hljs-comment">/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */</span>
+<span class="hljs-keyword">func</span> reverseList(head *ListNode) *ListNode {
+    <span class="hljs-keyword">var</span> pre *ListNode
+    <span class="hljs-keyword">for</span> head != <span class="hljs-literal">nil</span> {
+        temp := head
+        head = head.Next
+        temp.Next = pre
+        pre = temp
+    }
+
+    <span class="hljs-keyword">return</span> pre
+}
+</code></pre>
 <h2 id="&#x65B9;&#x6CD5;&#x4E8C;&#x3001;&#x9012;&#x5F52;&#x6CD5;">&#x65B9;&#x6CD5;&#x4E8C;&#x3001;&#x9012;&#x5F52;&#x6CD5;</h2>
 <h3 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h3>
 <p>&#x7EC8;&#x6B62;&#x6761;&#x4EF6;&#xFF1A;&#x8282;&#x70B9;&#x4E3A;&#x7A7A;&#x6216;&#x8282;&#x70B9;&#x7684;&#x6307;&#x5411;&#x4E3A;&#x7A7A;
-&#x201C;&#x9012;&#x201D;&#xFF1A;&#x6307;&#x9488;&#x540E;&#x88D4;&#x4E00;&#x6B65;
+&#x201C;&#x9012;&#x201D;&#xFF1A;&#x6307;&#x9488;&#x540E;&#x79FB;&#x4E00;&#x6B65;
 &#x201C;&#x5F52;&#x201D;&#xFF1A;&#x5C40;&#x90E8;&#x53CD;&#x8F6C;&#x6307;&#x9488;</p>
 <p>&#x5173;&#x952E;&#x662F;&#x5229;&#x7528;&#x6307;&#x9488; p &#x548C; head &#xFF0C;&#x4F7F;&#x6307;&#x9488; p &#x4E00;&#x76F4;&#x6307;&#x5411;&#x53CD;&#x8F6C;&#x524D;&#x7684;&#x94FE;&#x8868;&#x5C3E;&#x90E8;&#xFF0C;&#x65B9;&#x4FBF;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;
 head &#x6307;&#x5411;&#x9012;&#x5F52;&#x65F6;&#x7684;&#x5F53;&#x524D;&#x8282;&#x70B9;&#xFF0C;&#x5229;&#x7528; <code>$head-&gt;next-&gt;next = $head</code> &#x548C; <code>$head-&gt;next = null</code> &#x8FDB;&#x884C;&#x5C40;&#x90E8;&#x8282;&#x70B9;&#x6307;&#x5411;&#x6389;&#x5934;&#xFF1B;
@@ -1091,7 +1110,7 @@ head &#x6307;&#x5411;&#x9012;&#x5F52;&#x65F6;&#x7684;&#x5F53;&#x524D;&#x8282;&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"反转链表","level":"1.4.3","depth":2,"next":{"title":"合并两个有序链表","level":"1.4.4","depth":2,"path":"linked-list/merge-two-sorted-lists.md","ref":"linked-list/merge-two-sorted-lists.md","articles":[]},"previous":{"title":"删除链表的倒数第N个节点","level":"1.4.2","depth":2,"path":"linked-list/remove-nth-node-from-end-of-list.md","ref":"linked-list/remove-nth-node-from-end-of-list.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/Mr-houzi/leetbook-algorithm-easy"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mr-houzi","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"LeetBook《初级算法》题解","language":"zh-hans","links":{"sidebar":{"LeetBook《初级算法》题解":"#"}},"gitbook":"*","description":"这是一本LeetCode书籍《初级算法》的题解"},"file":{"path":"linked-list/reverse-linked-list.md","mtime":"2021-04-21T10:17:37.795Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-19T09:31:08.088Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"反转链表","level":"1.4.3","depth":2,"next":{"title":"合并两个有序链表","level":"1.4.4","depth":2,"path":"linked-list/merge-two-sorted-lists.md","ref":"linked-list/merge-two-sorted-lists.md","articles":[]},"previous":{"title":"删除链表的倒数第N个节点","level":"1.4.2","depth":2,"path":"linked-list/remove-nth-node-from-end-of-list.md","ref":"linked-list/remove-nth-node-from-end-of-list.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","github","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/Mr-houzi/leetbook-algorithm-easy"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mr-houzi","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"LeetBook《初级算法》题解","language":"zh-hans","links":{"sidebar":{"LeetBook《初级算法》题解":"#"}},"gitbook":"*","description":"这是一本LeetCode书籍《初级算法》的题解"},"file":{"path":"linked-list/reverse-linked-list.md","mtime":"2022-04-28T01:43:14.194Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-09T04:05:27.538Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1102,6 +1121,10 @@ head &#x6307;&#x5411;&#x9012;&#x5F52;&#x65F6;&#x7684;&#x5F53;&#x524D;&#x8282;&#x
     
         
         <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
