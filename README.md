@@ -8,8 +8,6 @@
 - 时空复杂度
 - 可运行的代码
 
-![](./cover.jpg)
-
 目录
 
 * [数组](array/summary.md)
