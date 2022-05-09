@@ -10,7 +10,9 @@
     },
     "plugins": [
         "-sharing",
-        "github"
+        "github",
+        "chapter-fold",
+        "code"
     ],
     "pluginsConfig": {
         "github": {
