@@ -32,6 +32,8 @@ function helper($n){
 
 ### 代码
 
+php
+
 ```php
 class Solution {
 
@@ -53,5 +55,24 @@ class Solution {
 
         return $p3;
     }
+}
+```
+
+golang
+
+```golang
+// dp方程：f(n) = f(n-1) + f(n-2)
+func climbStairs(n int) int {
+	p1 := 0
+	p2 := 0
+	p3 := 1
+	for i := 1; i <= n; i++ {
+		p1 = p2
+		p2 = p3
+		
+		p3 = p1 + p2
+	}
+	
+	return p3
 }
 ```

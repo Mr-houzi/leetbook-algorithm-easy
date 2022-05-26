@@ -1,4 +1,4 @@
-# 只出现一次的数字
+# [136. 只出现一次的数字](https://leetcode.cn/problems/single-number/)
 
 ### 思路
 
@@ -42,7 +42,9 @@
 
 ### 代码
 
-```
+php
+
+```php
 class Solution {
 
     /**
@@ -57,5 +59,18 @@ class Solution {
 
         return $result;
     }
+}
+```
+
+golang
+
+```golang
+func singleNumber(nums []int) int {
+    ans := 0
+    for i := 0; i < len(nums); i++ {
+        ans = ans ^ nums[i]
+    }
+
+    return ans
 }
 ```
