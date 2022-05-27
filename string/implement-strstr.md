@@ -1,4 +1,4 @@
-# 实现 strStr()
+# [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr/)
 
 ### 思路
 

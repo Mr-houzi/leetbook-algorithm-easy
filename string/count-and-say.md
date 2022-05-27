@@ -1,4 +1,4 @@
-# 外观数列
+# [38. 外观数列](https://leetcode.cn/problems/count-and-say/)
 
 ### 思路
 

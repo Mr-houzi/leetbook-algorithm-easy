@@ -29,7 +29,7 @@
     * [反转链表](linked-list/reverse-linked-list.md)
     * [合并两个有序链表](linked-list/merge-two-sorted-lists.md)
     * [回文链表](linked-list/palindrome-linked-list.md)
-    * [环形链表](linked-list//linked-list-cycle.md)
+    * [环形链表](linked-list/linked-list-cycle.md)
 * [树](tree/summary.md)
     * [二叉树的最大深度](tree/maximum-depth-of-binary-tree.md)
     * [验证二叉搜索树](tree/validate-binary-search-tree.md)
