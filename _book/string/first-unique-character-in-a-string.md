@@ -1,4 +1,4 @@
-# 字符串中的第一个唯一字符
+# [387. 字符串中的第一个唯一字符](https://leetcode.cn/problems/first-unique-character-in-a-string/)
 
 ### 思路
 

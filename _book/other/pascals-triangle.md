@@ -1,4 +1,4 @@
-# 杨辉三角
+# [118. 杨辉三角](https://leetcode.cn/problems/pascals-triangle/)
 
 ### 思路
 

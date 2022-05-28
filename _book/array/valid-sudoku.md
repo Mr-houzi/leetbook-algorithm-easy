@@ -1,4 +1,4 @@
-# 有效的数独
+# [36. 有效的数独](https://leetcode.cn/problems/valid-sudoku/)
 
 ### 思路
 

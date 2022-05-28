@@ -972,10 +972,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x5B57;">&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x5B57;</h1>
+                                <h1 id="136-&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x5B57;"><a href="https://leetcode.cn/problems/single-number/" target="_blank">136. &#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x5B57;</a></h1>
 <h3 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h3>
-<p>&#x9898;&#x76EE;&#x8981;&#x6C42;&#x7EBF;&#x6027;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x4E0D;&#x9002;&#x7528;&#x989D;&#x5916;&#x7A7A;&#x95F4;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x5E38;&#x89C4;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x5229;&#x7528;<strong>&#x5F02;&#x6216;&#x7684;&#x7279;&#x6027;</strong>&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
-<p>&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x89C4;&#x5219;&#x662F;&#x201C;&#x540C;&#x4E3A;0&#xFF0C;&#x5F02;&#x4E3A;1&#x201D;&#xFF0C;&#x5373; 1&#x2295;1 = 0&#xFF0C;0&#x2295;0=0&#xFF0C;1&#x2295;0=1&#xFF0C;0&#x2295;1=1&#x3002;</p>
+<p>&#x9898;&#x76EE;&#x8981;&#x6C42;&#x7EBF;&#x6027;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x4E0D;&#x4F7F;&#x7528;&#x989D;&#x5916;&#x7A7A;&#x95F4;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x5E38;&#x89C4;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x5229;&#x7528;<strong>&#x5F02;&#x6216;&#x7684;&#x7279;&#x6027;</strong>&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x89C4;&#x5219;&#x662F;&#x201C;<strong>&#x540C;&#x4E3A;0&#xFF0C;&#x5F02;&#x4E3A;1</strong>&#x201D;&#xFF0C;&#x5373; 1&#x2295;1 = 0&#xFF0C;0&#x2295;0=0&#xFF0C;1&#x2295;0=1&#xFF0C;0&#x2295;1=1&#x3002;</p>
 <p>&#x5C06;&#x4E00;&#x4E2A;&#x5341;&#x8FDB;&#x5236;&#x6570;&#x8FDB;&#x884C;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x5982;&#x4E0B;&#x7279;&#x6027;&#xFF1A;</p>
 <ol>
 <li>&#x4E00;&#x4E2A;&#x6570;&#x4E0E; 0 &#x5F02;&#x6216;&#x7B49;&#x4E8E;&#x4ED6;&#x672C;&#x8EAB;&#xFF1B;</li>
@@ -1000,22 +1000,34 @@
 <p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(n)</p>
 <p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(1)</p>
 <h3 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h3>
-<pre><code>class Solution {
+<p>php</p>
+<pre><code class="lang-php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
 
-    /**
-     * @param Integer[] $nums
-     * @return Integer
-     */
-    function singleNumber($nums) {
-        $result = 0;
-        for($i = 0; $i &lt; count($nums); $i++) {
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param</span> Integer[] $nums
+     * <span class="hljs-doctag">@return</span> Integer
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">singleNumber</span><span class="hljs-params">($nums)</span> </span>{
+        $result = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>($i = <span class="hljs-number">0</span>; $i &lt; count($nums); $i++) {
             $result ^= $nums[$i];
         }
 
-        return $result;
+        <span class="hljs-keyword">return</span> $result;
     }
 }
 </code></pre>
+<p>golang</p>
+<pre><code class="lang-golang"><span class="hljs-keyword">func</span> singleNumber(nums []<span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    ans := <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(nums); i++ {
+        ans = ans ^ nums[i]
+    }
+
+    <span class="hljs-keyword">return</span> ans
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1058,7 +1070,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"只出现一次的数字","level":"1.2.5","depth":2,"next":{"title":"两个数组的交集 II","level":"1.2.6","depth":2,"path":"array/intersection-of-two-arrays-ii.md","ref":"array/intersection-of-two-arrays-ii.md","articles":[]},"previous":{"title":"存在重复元素","level":"1.2.4","depth":2,"path":"array/contains-duplicate.md","ref":"array/contains-duplicate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","github","chapter-fold","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/Mr-houzi/leetbook-algorithm-easy"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mr-houzi","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"LeetBook《初级算法》题解","language":"zh-hans","links":{"sidebar":{"LeetBook《初级算法》题解":"#"}},"gitbook":"*","description":"这是一本LeetCode书籍《初级算法》的题解"},"file":{"path":"array/single-number.md","mtime":"2021-03-15T12:47:16.079Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-09T04:36:19.529Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"只出现一次的数字","level":"1.2.5","depth":2,"next":{"title":"两个数组的交集 II","level":"1.2.6","depth":2,"path":"array/intersection-of-two-arrays-ii.md","ref":"array/intersection-of-two-arrays-ii.md","articles":[]},"previous":{"title":"存在重复元素","level":"1.2.4","depth":2,"path":"array/contains-duplicate.md","ref":"array/contains-duplicate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","github","chapter-fold","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/Mr-houzi/leetbook-algorithm-easy"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mr-houzi","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"LeetBook《初级算法》题解","language":"zh-hans","links":{"sidebar":{"LeetBook《初级算法》题解":"#"}},"gitbook":"*","description":"这是一本LeetCode书籍《初级算法》的题解"},"file":{"path":"array/single-number.md","mtime":"2022-05-27T03:50:15.497Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-28T04:25:36.254Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

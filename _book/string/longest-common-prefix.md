@@ -1,4 +1,4 @@
-# 最长公共前缀
+# [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix/)
 
 ## 方法一、横向比较
 
@@ -16,7 +16,7 @@ n 元素个数，m平均每个元素的字符长度。
 
 ### 代码
 
-```
+```php
 class Solution {
 
     /**
