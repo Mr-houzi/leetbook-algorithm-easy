@@ -12,7 +12,8 @@
         "-sharing",
         "github",
         "chapter-fold",
-        "code"
+        "code",
+        "intopic-toc"
     ],
     "pluginsConfig": {
         "github": {
