@@ -1,4 +1,4 @@
-# 3的幂
+# [326. 3 的幂](https://leetcode.cn/problems/power-of-three/)
 
 ## 方法一、常规循环
 

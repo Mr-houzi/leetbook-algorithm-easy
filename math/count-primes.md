@@ -1,4 +1,4 @@
-# 计数质数
+# [204. 计数质数](https://leetcode.cn/problems/count-primes/)
 
 ### 思路
 
