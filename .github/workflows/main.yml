@@ -1,24 +1,15 @@
-name: Build and Publish My GitBook
-
+name: 'Gitbook Action Build'
 on:
-  workflow_dispatch:
   push:
     branches:
-      - master
-
+      - master  # trigger branch
 jobs:
-  build-and-deploy:
-    name: Build and deploy
+  build:
     runs-on: ubuntu-latest
-    env:
-      MY_SECRET   : ${{ secrets.LC_GH_PAGES_PRIVATE_KEY }}
-      USER_NAME   : mr-houzi
-      USER_EMAIL  : ghosthouzi@foxmail.com
-      BOOK_DIR    : .
-
     steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@v2.3.1
-
-    - name: Build and Deploy 🚀
-      uses: onejar99/gitbook-build-publish-action@v1.0.2
+    - name: Checkout action
+      uses: actions/checkout@v2
+    - name: Gitbook Action           # https://github.com/ZanderZhao/gitbook-action/releases
+      uses: ZanderZhao/gitbook-action@v1.2.4  # -> or ZanderZhao/gitbook-action@master.  If not use master click above, use latest please 
+      with:                                   #    or fork this repo and use YourName/gitbook-action@master
+        token: ${{ secrets.LC_GH_PAGES_PRIVATE_KEY  }}  # -> remember add this in settings/secrets as following
