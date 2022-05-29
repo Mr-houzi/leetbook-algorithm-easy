@@ -15,6 +15,7 @@ jobs:
       USER_NAME   : mr-houzi
       USER_EMAIL  : ghosthouzi@foxmail.com
       BOOK_DIR    : ./
+      #OUTPUT_DIR  : book_sources/_book
 
     steps:
     - name: Checkout 🛎️
