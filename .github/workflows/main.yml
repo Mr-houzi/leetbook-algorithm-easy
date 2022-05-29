@@ -14,7 +14,7 @@ jobs:
       MY_SECRET   : ${{ secrets.LC_GH_PAGES_PRIVATE_KEY }}
       USER_NAME   : mr-houzi
       USER_EMAIL  : ghosthouzi@foxmail.com
-      BOOK_DIR    : _book
+      BOOK_DIR    : ./
 
     steps:
     - name: Checkout 🛎️
