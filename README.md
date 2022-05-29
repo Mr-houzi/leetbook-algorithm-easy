@@ -1,5 +1,7 @@
 # LeetBook《初级算法》题解
 
+![](./cover.png)
+
 这是一本针对于 Leetcode 小书[《初级算法》](https://leetcode-cn.com/leetbook/detail/top-interview-questions-easy/)的题解书籍。
 
 每道题的题解都包含以下三个方面：
